@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fruitpicker</title>
+
+    <link rel="stylesheet" href="/simple_html_css/public/style.css">
+</head>
+<body>
+    <h1 class="headliner">Fruit Picker</h1>
+
+    <form action="/recipes" method="POST" class="buttons">
+        <button type="submit" value="banana" name="fruit" class="button">
+            <img src="/simple_html_css/public/img/banana.jpg" alt="banana">
+        </button>
+        <button type="submit" value="sweet-cherry" name="fruit" class="button">
+            <img src="/simple_html_css/public/img/cherry.jpg" alt="cherry">
+        </button>
+        <button type="submit" value="tangerine" name="fruit" class="button">
+            <img src="/simple_html_css/public/img/tangerine.jpg" alt="tangerine">
+        </button>
+    </form> 
+
+
+   <% if (locals.recipes) { %>
+        <h2 class=" recipe_header">
+            <%= recipes.recipe.name %>
+        </h2>
+        
+   
+
+       <ul class="list_of_ingredients">
+        <% recipes.recipe.ingredients.forEach(element => { %>
+             <li><%= element %></li>
+        <% }); %>
+       </ul>
+
+       <ul class="steps_of_preparation">
+        <% recipes.preparation.forEach(element =>{ %>
+            <li><%= element %></li>
+        <% });  %>
+       </ul>
+
+        
+    
+   <% } else { %>
+        <h3 class="txt_headliner"> It's summer and you have leftover fruit? Let's make ice cream with it. </h3> 
+        <p class="txt">Choose your fruit and get a recipe</p>
+   <% } %>
+ 
+     
+
+  
+
+
+    
+</body>
+</html>
